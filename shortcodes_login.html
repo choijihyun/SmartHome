@@ -17,9 +17,6 @@
 <link href="_include/css/bootstrap.min.css" rel="stylesheet">
 <!-- Main Style -->
 <link href="_include/css/main.css" rel="stylesheet">
-<!-- Shortcodes -->
-<link href="_include/css/shortcodes.css" rel="stylesheet">
-
 <!-- Responsive -->
 <link href="_include/css/bootstrap-responsive.min.css" rel="stylesheet">
 <link href="_include/css/responsive.css" rel="stylesheet">
@@ -40,6 +37,7 @@
             <div class="span12">
                 <div class="title-page">
                     <h2 class="title">SmartHome</h2>
+                    <p></p>
                     <h3 class="title-description">Smart Home based with Smart Grid</h3>
                 </div>
             </div>
@@ -55,7 +53,7 @@
             <form>
               <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
               <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-              <input type="button" class="fadeIn fourth" value="Log In" onclick="location.href='file:///C:/Users/USER/Desktop/4-1/%EC%BA%A1%EC%8A%A4%ED%86%A4/view/Brushed/Template/brushed/main.html'">
+              <input type="button" id="submit" class="fadeIn fourth" value="Log In" onclick=GotoMain()>
             </form>
 
             <!-- Remind Passowrd -->
@@ -92,8 +90,8 @@
 
 <script type="text/javascript">
 // Form Submission
-$("#submit").onclick(function() {
-  alert("click!");
+function GotoMain() {
+  location.href="main.html";
   /*
   remove_loading($(this));
 
@@ -108,7 +106,7 @@ $("#submit").onclick(function() {
     return false;
   }
   */
-});
+};
 
 </script>
 </body>

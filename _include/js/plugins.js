@@ -134,25 +134,12 @@ self.getPositions();
 }, 250);
 },
 
-getHash: function($link) {
-return $link.attr('href').split('#')[1];
-},
-
 getPositions: function() {
 var self = this;
 var linkHref;
 var topPos;
 var $target;
 
-self.$nav.each(function() {
-linkHref = self.getHash($(this));
-$target = $('#' + linkHref);
-
-if($target.length) {
-topPos = $target.offset().top;
-self.sections[linkHref] = Math.round(topPos) - self.config.scrollOffset;
-}
-});
 },
 
 getSection: function(windowPos) {
@@ -172,7 +159,6 @@ handleClick: function(e) {
 var self = this;
 var $link = $(e.currentTarget);
 var $parent = $link.parent();
-var newLoc = '#' + self.getHash($link);
 
 if(!$parent.hasClass(self.config.currentClass)) {
 //Start callback
@@ -186,28 +172,6 @@ self.adjustNav(self, $parent);
 //Removing the auto-adjust on scroll
 self.unbindInterval();
 
-//Scroll to the correct position
-$.scrollTo(newLoc, self.config.scrollSpeed, {
-axis: 'y',
-easing: self.config.easing,
-offset: {
-top: -self.config.scrollOffset
-},
-onAfter: function() {
-//Do we need to change the hash?
-if(self.config.changeHash) {
-window.location.hash = newLoc;
-}
-
-//Add the auto-adjust on scroll back in
-self.bindInterval();
-
-//End callback
-if(self.config.end) {
-self.config.end();
-}
-}
-});
 }
 
 e.preventDefault();
