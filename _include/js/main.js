@@ -21,7 +21,7 @@ var mobileMenuClone = $('#menu').clone().attr('id', 'navigation-mobile');
 BRUSHED.mobileNav = function(){
 	var windowWidth = $(window).width();
 
-	if( windowWidth <= 979 ) {
+	if( windowWidth <= 1000 ) {
 		if( $('#mobile-nav').length > 0 ) {
 			mobileMenuClone.insertAfter('#menu');
 			$('#navigation-mobile #menu-nav').attr('id', 'menu-nav-mobile');
@@ -64,22 +64,6 @@ BRUSHED.listenerMenu = function(){
 	});
 }
 
-
-/* ==================================================
-   Menu Highlight
-================================================== */
-
-BRUSHED.menu = function(){
-	$('#menu-nav, #menu-nav-mobile').onePageNav({
-		currentClass: 'current',
-    	changeHash: false,
-    	scrollSpeed: 750,
-    	scrollOffset: 30,
-    	scrollThreshold: 0.5,
-		easing: 'easeOutExpo',
-		filter: ':not(.external)'
-	});
-}
 /* ==================================================
    Toggle
 ================================================== */
@@ -109,7 +93,6 @@ $(document).ready(function(){
 	
 	BRUSHED.mobileNav();
 	BRUSHED.listenerMenu();
-	BRUSHED.menu();
 	BRUSHED.toggle();
 });
 
